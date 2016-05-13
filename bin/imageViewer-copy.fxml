@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="anchor" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.66" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ImageViewerController">
+   <children>
+      <Button fx:id="selectFileButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#selectFileButtonAction" prefHeight="31.0" prefWidth="181.0" text="select file" />
+      <Button fx:id="slideShowButton" layoutX="226.0" layoutY="14.0" mnemonicParsing="false" onAction="#slideShowButtonAction" prefHeight="31.0" prefWidth="181.0" text="start slide show" />
+      <Button fx:id="selectDirectoryButton" layoutX="450.0" layoutY="14.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="195.0" text="select directory" />
+    <!--    <ScrollPane fx:id="showFilesPane" layoutX="14.0" layoutY="55.0" prefHeight="285.0" prefWidth="770.0" /> -->
+      <ScrollPane fx:id="showPane" layoutX="0.0" layoutY="55.0">  <!--  prefHeight="467.0" prefWidth="770.0"> -->
+         <content>
+         	<ImageView fx:id="filesViewer" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imageViewer" pickOnBounds="true" preserveRatio="true" />
+            
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
