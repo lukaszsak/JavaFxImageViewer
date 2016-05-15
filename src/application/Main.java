@@ -36,6 +36,7 @@ public class Main extends Application {
 			showPane.heightProperty().add(scene.getHeight());
 
 		} catch (Exception e) {
+			// REV: obsluga wyjatkow
 			e.printStackTrace();
 		}
 	}

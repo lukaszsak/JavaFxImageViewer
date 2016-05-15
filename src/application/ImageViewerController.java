@@ -20,6 +20,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 public class ImageViewerController {
+	// REV: ten katalog nie istnieje na innym komputerze
 	//picture resources default catalog
 	private final static String FILE = "c:/projects/starterkit/pictures";
 	
@@ -64,12 +65,14 @@ public class ImageViewerController {
 	@FXML
 	private ImageView imageViewer;
 
+	// REV: nie ma takiej kontrolki w FXMLu
 	@FXML
 	private Image image;
 
 	@FXML
 	private String imagePath;
 
+	// REV: watek nie ma nic wspolnego z JavaFXem
 	@FXML
 	private Thread th;
 
@@ -96,6 +99,7 @@ public class ImageViewerController {
 		fileChooser.getExtensionFilters().add(extFilterAllSupported);
 	}
 
+	// REV: uzycie tej klasy jest ok, ale zeby zrozumiec jak ona dziala trzeba polecalbym najpierw zrobic to przez watki i taski
 	private Service<Void> backgroundThread = new Service<Void>() {
 		@Override
 		protected Task<Void> createTask() {
@@ -125,6 +129,7 @@ public class ImageViewerController {
 		imageViewer.setVisible(true);
 		if (selectedFiles != null) {
 			if (slideShowButton.getText().equals("start slide show")) {
+				// REV: lepiej zrobic to przez binding
 				selectFileButton.setDisable(true);
 				zoomInButton.setDisable(false);
 				zoomOutButton.setDisable(false);
@@ -144,6 +149,7 @@ public class ImageViewerController {
 	File selectFile() {
 		imageViewer.setVisible(true);
 		fileChooser.setInitialDirectory(defaultDirectory);
+		// REV: tytul powinien byc pobrany z bundla
 		fileChooser.setTitle("Choose File to display");
 		return fileChooser.showOpenDialog((Stage) selectFileButton.getScene().getWindow());
 	}
@@ -152,6 +158,7 @@ public class ImageViewerController {
 	List<File> selectMultipleFiles() {
 		imageViewer.setVisible(true);
 		fileChooser.setInitialDirectory(defaultDirectory);
+		// REV: j.w.
 		fileChooser.setTitle("Choose File to display");
 		return fileChooser.showOpenMultipleDialog((Stage) selectFileButton.getScene().getWindow());
 	}
